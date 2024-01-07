@@ -86,7 +86,7 @@ typedef struct de {
     int nbFace; // nombre de faces du dé
     int faceSelect; // face active du dé (entre 1 et nbFace inclus)
     char id[8]; // identifiant du dé
-}dice;
+} dice;
 
 // renvoie 0 si la face sélectionnée n'est pas une face possible pour ce dé
 int verifie(dice d) {
