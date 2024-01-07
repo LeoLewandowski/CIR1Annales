@@ -35,7 +35,13 @@ Quatrième itération, `i = 3`, `j = 3 % 3 = 0` :
 - Break -> on sort du switch
 - On imprime une fois de plus tut : total = `31`
 
-Total final : `31`
+Cinquième itération, `i = 4`, `j = 4 % 3 = 1` :
+
+- Switch case `1` : 2 fois tut, total = `33`
+- Break -> on sort du switch
+- On imprime une fois de plus tut : total = `34`
+
+Total final : `34`
 
 ### Exercice 2
 
@@ -43,7 +49,7 @@ Enoncé :
 
 ![Enoncé exo 2](images/Partiel_22/exo2_enonce.png)
 
-> Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accédent à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
+> Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accéder à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
 
 #### Question 1
 
@@ -193,14 +199,16 @@ Enoncé :
 
 ```c
 int est_premier(int n) {
-    for (int i = 2; i < n / 2; i++) {
+    for (int i = 2; i < sqrt(n) + 1; i++) {
         /* Si i divise n, alors n n'est pas premier et on retourne faux */
         if (n % i == 0) return 0;
     }
-    /* Sinon n est prere*/
+    /* Sinon n est premier et on retourne vrai */
     return 1;
 }
 ```
+
+La limite à partir de laquelle on peut arrêter de chercher est l'entier directement supérieur à la racine carrée de n
 
 ### Exercice 2
 
