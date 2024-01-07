@@ -44,11 +44,11 @@ Enoncé :
 ![Enoncé exo 2](images/Partiel_22/exo2_enonce.png)
 
 > Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accédent à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
-> En gros :
+> 
+> En admettant que `pointeur` pointe vers `objet`, les 3 instructions suivantes sont équivalentes :
 
 ```c
 objet.valeur
-
 pointeur->valeur
 (*pointeur).valeur
 ```
