@@ -39,9 +39,13 @@ Total final : `31`
 
 ### Exercice 2
 
-#### Question 1
+Enoncé :
+
+![Enoncé exo 2](images/Partiel_22/exo2_enonce.png)
 
 > Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accédent à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
+
+#### Question 1
 
 ```c
 objet.valeur
@@ -126,6 +130,10 @@ Le dé d20z de 20 faces est actuellement sur la face 2.
 
 ## Partie II
 
+Enoncé :
+
+![Enoncé partie II](images/Partiel_22/partie_2.png)
+
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -176,6 +184,10 @@ int main() {
 ```
 
 ## Partie III
+
+Enoncé :
+
+![Enoncé partie III](images/Partiel_22/partie_3.png)
 
 ### Exercice 1
 
