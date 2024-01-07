@@ -1,6 +1,8 @@
 # Partiel d'Algorithmique - 6 janvier 2022
 
-## Exercice 1
+## Partie I
+
+### Exercice 1
 
 Enoncé :
 
@@ -35,9 +37,9 @@ Quatrième itération, `i = 3`, `j = 3 % 3 = 0` :
 
 Total final : `31`
 
-## Exercice 2
+### Exercice 2
 
-### Question 1
+#### Question 1
 
 > Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accédent à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
 
@@ -110,7 +112,7 @@ int main() {
 }
 ```
 
-### Question 2
+#### Question 2
 
 Sortie :
 
@@ -122,4 +124,101 @@ Le dé d20z de 20 faces est actuellement sur la face 2.
 Le dé d20z de 20 faces est actuellement sur la face 2.
 ```
 
-## Exercice 3
+## Partie II
+
+```c
+#include <stdlib.h>
+#include <stdio.h>
+
+#define TAILLE_STOCK 2
+
+/* Question 1 : Structure */
+typedef struct art {
+    int ref;
+    float prix;
+    int quantite;
+} article;
+
+/* Question 2 : augmentationQuantite */
+article augmentationQuantite(article * art, int augmentation) {
+    art->quantite += augmentation;
+    return *art;
+}
+
+/* Question 3 : augmentationPrix */
+void augmentationPrix(article* art, float taux) {
+    art->prix += (art->prix * taux);
+    return;
+}
+
+/* Question 4 : augmentationGenerale */
+void augmentationGenerale(article* stock, float taux) {
+    for (int i = 0; i < TAILLE_STOCK; i++) augmentationPrix(stock + i, taux);
+    return;
+}
+
+/* Question 5 : affichageStock */
+void affichageStock(article* stock) {
+    for (int i = 0; i < TAILLE_STOCK; i++) printf_s("- ref:%d , prix:%.2f , quantite:%d\n", (stock + i)->ref, (stock + i)->prix, (stock + i)->quantite);
+    return;
+}
+
+int main() {
+    /* Question 6 : Définition du stock*/
+    article stock[TAILLE_STOCK] = {
+        {430, 13.54, 10},
+        {510, 20.99, 30}
+    };
+
+    affichageStock(stock);
+    return(EXIT_SUCCESS);
+}
+```
+
+## Partie III
+
+### Exercice 1
+
+```c
+int est_premier(int n) {
+    for (int i = 2; i < n / 2; i++) {
+        /* Si i divise n, alors n n'est pas premier et on retourne faux */
+        if (n % i == 0) return 0;
+    }
+    /* Sinon n est prere*/
+    return 1;
+}
+```
+
+### Exercice 2
+
+```c
+int premier_suivant(int n) {
+    int i = 0;
+    /* On augmente i jusqu'à trouver un nombre qui soit premier */
+    while (!est_premier(n + i)) {
+        i++;
+    }
+    return n + i;
+}
+```
+
+### Exercice 3
+
+```c
+void decomposition(int n) {
+    /* Plus petit terme premier diviseur de n. Pour chercher les facteurs premier de n, on divise d'abord par 2, puis 3, etc. C'est pareil pour petit_terme, il commence à 2 puis augmente dès qu'il n'est plus diviseur de n */
+    int petit_terme = 2;
+    printf_s("%d = ", n);
+    while (!est_premier(n)) {
+        /* Si petit_terme divise n, alors n est égal au quotient de la division, et on imprime un terme en plus */
+        if (n % petit_terme == 0) {
+            printf_s("%d x ", petit_terme);
+            n /= petit_terme;
+        }
+        /* Sinon, petit_terme devient le facteur premier suivant (excluant lui-même, d'où le +1)*/
+        else petit_terme = premier_suivant(petit_terme + 1);
+    }
+    printf_s(" %d\n", n);
+}
+```
