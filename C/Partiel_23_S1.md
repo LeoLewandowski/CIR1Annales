@@ -102,11 +102,11 @@ struct event {
 
 La taille d'une structure est la somme des tailles de tous les éléments de la structure, lesquels sont :
 
-- 4 `int`, de `2` octets chacun ce qui fait `8` octets
+- 3 `int`, de `2` octets chacun ce qui fait `6` octets
 - 1 `bool`, de `1` octet
 - 31 `char`, de `1` octet chacun, ce qui fait `31` octets
 
-Additionnés ensemble, cela nous donne `36` octets de mémoire en tout
+Additionnés ensemble, cela nous donne `38` octets de mémoire en tout
 
 > Parfois les `int` sont encodés sur `4` bits et non `2`, si vous voulez être sûrs d'avoir les points précisez bien la taille des `int` que vous prenez en compte
 
