@@ -6,7 +6,9 @@ Pour l'instant toutes les corrections ici présentes ont été faites par mes so
 
 ## Liste des corrections - C
 
+- [Partiel Semestre 1 - Promo 66](./C/Partiel_21.md)
 - [Partiel Semestre 1 - Promo 67](./C/Partiel_22.md)
+- [Partiel Semestre 1 - Promo 68](./C/Partiel_23_S1.md)
 
 ## Liste des corrections - Web
 

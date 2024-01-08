@@ -1,5 +1,9 @@
 # Partiel d'Algorithmique - 6 janvier 2022
 
+Correction du Partiel d'Algorithmique de C du 6 janvier 2022
+
+Ecrit par Léo Lewandowski
+
 ## Partie I
 
 ### Exercice 1

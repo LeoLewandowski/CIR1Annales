@@ -1,5 +1,9 @@
 # Partiel d'Algorithmique - 4 janvier 2023
 
+Correction du Partiel d'Algorithmique de C du 4 janvier 2021
+
+Ecrit par Léo Lewandowski
+
 ## Exercice I
 
 Énoncé :
