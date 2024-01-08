@@ -23,7 +23,7 @@ Seconde itération, `i = 1`, `j = 1 % 3 = 1` :
 - Break -> on sort du switch
 - On imprime une fois de plus tut : total = `16`
 
-Troisième itération, `i = 2`, `j = 2 % 3 = 0` :
+Troisième itération, `i = 2`, `j = 2 % 3 = 2` :
 
 - Switch case `default` : 1 fois tut, total = `17`
 - On imprime une fois de plus tut : total = `18`
@@ -50,7 +50,7 @@ Enoncé :
 ![Enoncé exo 2](images/Partiel_22/exo2_enonce.png)
 
 > Rappel : `.` permet d'accéder à un élément d'une structure donnée directement, `->` permet d'accéder à un élément d'une structure dont on a le pointeur : `pointeur->valeur` est la même chose que `(*pointeur).valeur`
-> 
+>
 > En admettant que `pointeur` pointe vers `objet`, les 3 instructions suivantes sont équivalentes :
 
 ```c
