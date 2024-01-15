@@ -4,6 +4,89 @@ Correction du partiel d'Algorithmique du Semestre 1 de 2024
 
 ## Partie 1
 
+### Question 1-A
+
+```c
+printf("Veuillez renseigner un caractère :");
+scanf("%c", &ch);
+```
+
+### Question 1-B
+
+Il permet de renvoyer un pointeur vers la variable `ch`
+
+### Question 2-A
+
+```c
+nbOctets = sizeof(ch);
+```
+
+### Question 2-B
+
+```c
+nbBits = log2(ch) + 1;
+```
+
+### Question 2-C
+
+#### Code
+
+```c
+mask = 0x8000;
+
+int i = 0;
+// On vérifie que ch != 0, sinon la boucle est infinie
+// A chaque itération de la boucle, on décale ch vers la droite
+if(ch != 0) while(mask & (ch << i)){
+    i++;
+}
+else i = sizeof(int);
+
+
+// A la fin de la boucle, i est le nombre de bits non utilisés
+// Le nombre de bits utilisés est donc le nombre total de bits de la variable
+// moins le nombre de bits non utilisés
+nbBits = sizeof(int) - i;
+```
+
+#### Explications
+
+> Rappel : le bit de poids fort d'un nombre est le bit situé le plus à gauche.
+>
+> Dans l'exemple suivant, `X` est le bit de poids fort, et `Z` le bit de poids faible : `0bXyyyyyyyZ`
+
+`mask & n` pour tout int n renvoie une des valeurs suivantes :
+
+- `0b1000000000000000` (`0x8000`)
+- `0b0000000000000000` (`0x0000`)
+
+La valeur renvoyée dépend _uniquement_ du bit de poids fort de `ch`.
+
+> Rappel 2 : l'opérateur `x << n` est l'opérateur de décalage binaire vers la gauche. Il permet de décaler tous les bits d'un nombre `x` de `n` places vers la gauche
+>
+> Exemples : `0b00110101 << 2` -> `0b11010100`, `0b00010110 << 1` -> `0b00101100`
+
+`mask & (ch << i)` permet de faire la même opération que plus haut, mais avec `ch` décalé vers la gauche de `i` places.
+
+Par conséquent, le `i` le plus petit pour lequel cette opération renvoie `0b1000000000000000` est le nombre de bits non utilisés de `ch`.
+
+Regardons un exemple de l'exécution de la boucle du programme plus haut. On prendra `ch = 0b0001011001111000`.
+
+Pour simplifier, on mettra la valeur `true` quand `mask & (ch << i)` vaut `0x8000` et `false` quand cela vaut `0x0000`
+
+| i | ch << i          | mask & (ch << i) |
+|---|------------------|------------------|
+| 0 | 0001011001111000 |      false       |
+| 1 | 0010110011110000 |      false       |
+| 2 | 0101100111100000 |      false       |
+| 3 | 1011001111000000 |       true       |
+
+On voit bien que `i` est le nombre de bits non utilisés dans `ch` : il y a 3 bits non utilisés au début de `ch`, et `i == 3`
+
+### Question 3-A
+
+Ce if sert dans le cas particulier où `ch` n'est encodé que sur 1 seul octet
+
 ## Partie 2
 
 ### Question A
@@ -62,7 +145,7 @@ char* cloneStr(char* word) {
 
 ### Structures
 
-#### Question 1
+#### Structures - Question 1
 
 ```c
 typedef struct {
@@ -77,7 +160,7 @@ typedef struct {
 } aquarium;
 ```
 
-#### Question 2
+#### Structures - Question 2
 
 ```c
 void qualityCheck(aquarium aq) {
