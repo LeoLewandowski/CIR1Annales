@@ -100,7 +100,8 @@ char* cloneStr(char* word) {
     // Tant que *(word + i) évalue en tant que `true`, on copie les caractères
     // Le caractère de fin de string évalue à `false`, la boucle s'arrêtera donc à ce caractère
     while( *(word + i) ) {
-        *(newWord + i) = *(word + i)
+        *(newWord + i) = *(word + i);
+        i++;
     }
     return newWord;
 }
