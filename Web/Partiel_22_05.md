@@ -1,4 +1,4 @@
-# Partiel de Web - 5 Mai 2022❌
+# Partiel de Web - 5 Mai 2022
 
 ## Exercice 1
 
