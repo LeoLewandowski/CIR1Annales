@@ -128,7 +128,7 @@ if (empty($_SESSION['auth'])) {
 
         echo '<form method="post" action="connexion.php">
             <label>Login: </label>
-            <input type="text" name="login" value="' . (isset($_COOKIE['login']) ? $_COOKIE['password'] : '') . '">
+            <input type="text" name="login" value="' . (isset($_COOKIE['login']) ? $_COOKIE['login'] : '') . '">
             <label>Password: </label>
             <input type="password" name="password" value="' . (isset($_COOKIE['password']) ? $_COOKIE['password'] : '') . '">
             <input type="submit" name="Envoyer" Value="Envoyer" />
