@@ -151,8 +151,6 @@ if (isset($_POST['Envoyer'])) {
     setcookie('password', $_POST['password'] ?? '');
 }
 
-$connexion = mysqli_connect();
-
 require_once ("connexionBD.php");
 $requete = $connexion->prepare("SELECT nom, prenom FROM utilisateur WHERE login = ?");
 $resultat = $requete->execute([$_COOKIE['login']]);
