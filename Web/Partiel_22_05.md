@@ -152,7 +152,7 @@ if (isset($_POST['Envoyer'])) {
 }
 
 require_once ("connexionBD.php");
-$requete = $connexion->prepare("SELECT nom, prenom FROM utilisateur WHERE login = ?");
+$requete = $connexion->prepare("SELECT login, password FROM utilisateur WHERE login = ?");
 $resultat = $requete->execute([$_COOKIE['login']]);
 if ($resultat == FALSE) {
     echo "<p>Erreur:" . mysqli_error($connexion) . "</p>";
