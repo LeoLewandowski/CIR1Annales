@@ -1,4 +1,4 @@
-# Partiel de Web - 5 Mai 2022❌
+# Partiel de Web - 5 Mai 2022
 
 ## Exercice 1
 
@@ -128,7 +128,7 @@ if (empty($_SESSION['auth'])) {
 
         echo '<form method="post" action="connexion.php">
             <label>Login: </label>
-            <input type="text" name="login" value="' . (isset($_COOKIE['login']) ? $_COOKIE['password'] : '') . '">
+            <input type="text" name="login" value="' . (isset($_COOKIE['login']) ? $_COOKIE['login'] : '') . '">
             <label>Password: </label>
             <input type="password" name="password" value="' . (isset($_COOKIE['password']) ? $_COOKIE['password'] : '') . '">
             <input type="submit" name="Envoyer" Value="Envoyer" />
@@ -151,10 +151,8 @@ if (isset($_POST['Envoyer'])) {
     setcookie('password', $_POST['password'] ?? '');
 }
 
-$connexion = mysqli_connect();
-
 require_once ("connexionBD.php");
-$requete = $connexion->prepare("SELECT nom, prenom FROM utilisateur WHERE login = ?");
+$requete = $connexion->prepare("SELECT login, password FROM utilisateur WHERE login = ?");
 $resultat = $requete->execute([$_COOKIE['login']]);
 if ($resultat == FALSE) {
     echo "<p>Erreur:" . mysqli_error($connexion) . "</p>";
